@@ -9,6 +9,7 @@ async function run(): Promise<void> {
         const packageVersion: string = await extract(path);
 
         exportVariable('PACKAGE_VERSION', packageVersion);
+        exportVariable('PACKAGE_VERSION_UNDERSCORES', packageVersion.replace(/\./g, '_'));
     } catch (error) {
         setFailed(error.message);
     }

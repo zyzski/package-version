@@ -2574,6 +2574,7 @@ function run() {
             const path = core_1.getInput('path') ? process.env.GITHUB_WORKSPACE + '/' + core_1.getInput('path') : yield util_1.findPackageJson(followSymbolicLinks);
             const packageVersion = yield util_1.extract(path);
             core_1.exportVariable('PACKAGE_VERSION', packageVersion);
+            core_1.exportVariable('PACKAGE_VERSION_UNDERSCORES', packageVersion.replace(/\./g, '_'));
         }
         catch (error) {
             core_1.setFailed(error.message);
